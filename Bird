@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Bird : MonoBehaviour
+{
+    // Variables
+    private float jumpAmount = 100f;
+    private Rigidbody2D birdRigidbody2D;
+
+    // Awake is called when the script becomes active
+    void Awake()
+    {
+        // Reference the Bird's Rigidbody2D
+        birdRigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Check if player pressed the space bar or clicked the mouse
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            Jump();
+        }
+    }
+
+    // The Jump method makes the bird jump
+    private void Jump()
+    {
+        birdRigidbody2D.velocity = Vector2.up * jumpAmount;
+    }
+}
